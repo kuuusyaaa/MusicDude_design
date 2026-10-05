@@ -1,20 +1,24 @@
 import { describe, expect, test, mock } from 'bun:test';
 import React from 'react';
 import { act, create, type ReactTestRenderer } from 'react-test-renderer';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 
 // Native host mocks: test component logic without pretending this is a device screenshot.
 const host = (name: string) => React.forwardRef<unknown, any>((props, ref) =>
   React.createElement(name, { ...props, ref }, props.children));
 mock.module('react-native', () => ({
-  View: host('View'), Text: host('Text'), Image: host('Image'), TextInput: host('TextInput'),
+  View: host('View'), Text: host('Text'), Image: host('Image'), TextInput: host('TextInput'), ScrollView: host('ScrollView'),
   StatusBar: host('StatusBar'), Platform: { OS: 'ios' },
   StyleSheet: { create: (x: unknown) => x, absoluteFill: { position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 } },
   Pressable: (props: any) => React.createElement('Pressable', { ...props, style: typeof props.style === 'function' ? props.style({ pressed: false }) : props.style },
     typeof props.children === 'function' ? props.children({ pressed: false }) : props.children),
 }));
-mock.module('react-native-svg', () => ({ default: host('Svg'), Defs: host('Defs'), LinearGradient: host('LinearGradient'), Rect: host('Rect'), Stop: host('Stop') }));
+mock.module('react-native-svg', () => ({ default: host('Svg'), Defs: host('Defs'), LinearGradient: host('LinearGradient'),
+  Rect: host('Rect'), Stop: host('Stop'), Circle: host('Circle'), Line: host('Line'), G: host('G') }));
 const { MDButton, MDInput, MDSelector, FilterChip, LibraryMode, NavBar, colors, buttonAppearance, tabs } = await import('../MusicDude');
 const { figmaAssets } = await import('../figma-assets');
+const { figmaScreenMap, WelcomeScreen, ConnectSpotifyScreen, ErasRenameScreen } = await import('../src');
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 function mount(element: React.ReactElement) { let r!: ReactTestRenderer; act(() => { r = create(element); }); return r; }
 
@@ -37,6 +41,26 @@ describe('Figma assets and tokens', () => {
     expect(buttonAppearance('primary', 'disabled').gradient).toBeUndefined();
     expect(buttonAppearance('secondary', 'pressed').backgroundColor).toBe(colors.canvas);
     expect(buttonAppearance('tertiary', 'default').backgroundColor).toBe('transparent');
+  });
+});
+describe('Current sys/ref screen handoff', () => {
+  test('maps every product frame and both logos back to Figma', () => {
+    expect(Object.keys(figmaScreenMap)).toHaveLength(23);
+    for (const entry of Object.values(figmaScreenMap)) expect(entry.nodeId).toMatch(/^\d+:\d+$/);
+  });
+  test('contains 46 valid direct SVG icon exports and a complete manifest', () => {
+    const directory = join(import.meta.dir, '..', 'assets', 'icons');
+    const files = readdirSync(directory).filter(name => name.endsWith('.svg'));
+    const manifest = JSON.parse(readFileSync(join(directory, 'manifest.json'), 'utf8'));
+    expect(files).toHaveLength(46); expect(Object.keys(manifest)).toHaveLength(46);
+    for (const file of files) {
+      expect(readFileSync(join(directory, file), 'utf8')).toContain('<svg');
+      expect(manifest[file]).toMatch(/^\d+:\d+$/);
+    }
+  });
+  test('representative screen families render as native component trees', () => {
+    const screens = [<WelcomeScreen />, <ConnectSpotifyScreen state="importing" />, <ErasRenameScreen onTabChange={() => {}} />];
+    for (const screen of screens) { const r = mount(screen); expect(r.root.findAllByType('View' as any).length).toBeGreaterThan(0); act(() => r.unmount()); }
   });
 });
 describe('Native component logic (mocked host)', () => {

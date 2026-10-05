@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "description": "React Native design-system handoff from MusicDude Figma page sys",
-  "main": "MusicDude.tsx",
-  "types": "MusicDude.tsx",
+  "main": "index.ts",
+  "types": "index.ts",
   "scripts": { "typecheck": "tsc --noEmit", "test": "bun test" },
   "peerDependencies": { "react": ">=19.1.0 <20", "react-native": ">=0.81 <1", "react-native-svg": ">=15.12.1 <16" },
   "devDependencies": {

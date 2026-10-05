@@ -1,0 +1,16 @@
+{
+  "main-stroke.svg": "8:100", "main-solid.svg": "12:268",
+  "library-stroke.svg": "8:113", "library-solid.svg": "12:271",
+  "social-stroke.svg": "11:156", "social-solid.svg": "12:279",
+  "profile-stroke.svg": "11:266", "profile-solid.svg": "12:294",
+  "eras-stroke.svg": "11:245", "eras-solid.svg": "12:299",
+  "arrow-right.svg": "48:2545", "arrow-down.svg": "48:2547", "arrow-left.svg": "48:2549", "arrow-up.svg": "48:2551",
+  "play.svg": "86:6603", "pause.svg": "86:6616", "next.svg": "86:6624", "previous.svg": "86:6633", "share.svg": "88:6647",
+  "calendar.svg": "89:6702", "scales.svg": "89:6710", "timer.svg": "89:6731", "tinder.svg": "89:6719", "puzzle.svg": "89:6738",
+  "search.svg": "89:6747", "would-they-like-it.svg": "89:6764", "mood-reader.svg": "89:6794",
+  "where-is-it-from.svg": "89:6807", "guess-our-match.svg": "90:6821", "cross.svg": "90:6922", "combo.svg": "90:6934",
+  "streak.svg": "90:6944", "hint.svg": "90:6956", "lifeline.svg": "90:6965", "challenge-results.svg": "90:6974",
+  "streak-freeze.svg": "90:6982", "double-or-nothing.svg": "90:6987", "todays-games.svg": "90:6999",
+  "vinyl.svg": "90:7012", "cd.svg": "90:7017", "cassette.svg": "90:7028", "gold-record.svg": "90:7045",
+  "notify.svg": "90:7064", "locked.svg": "90:7077", "language.svg": "90:7086", "ask-for-music.svg": "90:7093"
+}

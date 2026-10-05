@@ -4,5 +4,5 @@
     "jsx": "react-jsx", "strict": true, "skipLibCheck": true, "esModuleInterop": true,
     "allowSyntheticDefaultImports": true, "noEmit": true, "types": ["react", "bun"]
   },
-  "include": ["*.ts", "*.tsx", "tests/**/*.tsx"]
+  "include": ["*.ts", "*.tsx", "src/**/*.ts", "src/**/*.tsx", "tests/**/*.tsx"]
 }

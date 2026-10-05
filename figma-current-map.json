@@ -1,0 +1,41 @@
+{
+  "page": { "id": "0:1", "name": "sys/ref", "referenceWidth": 402 },
+  "generatedFromChannel": "d9pn7hyg",
+  "productNodes": [
+    { "id": "20:873", "name": "welcome", "code": "WelcomeScreen" },
+    { "id": "27:946", "name": "register", "code": "RegisterScreen" },
+    { "id": "27:999", "name": "log_in", "code": "LoginScreen" },
+    { "id": "29:1426", "name": "import_music / empty · full content", "code": "ImportMusicScreen" },
+    { "id": "34:1543", "name": "connect_spotify / login", "code": "ConnectSpotifyScreen:login" },
+    { "id": "34:1590", "name": "connect_spotify / importing", "code": "ConnectSpotifyScreen:importing" },
+    { "id": "34:1639", "name": "connect_spotify / error", "code": "ConnectSpotifyScreen:error" },
+    { "id": "35:1725", "name": "listening_permission / iOS / not_granted", "code": "ListeningPermissionScreen:false" },
+    { "id": "35:1783", "name": "listening_permission / iOS / granted", "code": "ListeningPermissionScreen:true" },
+    { "id": "38:1839", "name": "Portrait / full content", "code": "PortraitScreen" },
+    { "id": "38:2003", "name": "Portrait", "code": "PortraitScreen" },
+    { "id": "49:2612", "name": "Library / Analytics · full content", "code": "LibraryAnalyticsScreen" },
+    { "id": "49:3248", "name": "Library / Genre / open", "code": "LibraryGenreOpenScreen" },
+    { "id": "49:3320", "name": "Library / Era / open", "code": "LibraryEraOpenScreen" },
+    { "id": "49:3392", "name": "Library / Sort by / open", "code": "LibrarySortOpenScreen" },
+    { "id": "64:4887", "name": "Library / Discover / full content", "code": "LibraryTracksScreen:discover" },
+    { "id": "66:5120", "name": "Your Eras / Premium / full content", "code": "ErasPremiumScreen" },
+    { "id": "66:5331", "name": "Your Eras / Free / full content", "code": "ErasFreeScreen" },
+    { "id": "66:5466", "name": "Your Eras / No dated history", "code": "ErasEmptyScreen" },
+    { "id": "66:5561", "name": "Your Eras / Rename", "code": "ErasRenameScreen" },
+    { "id": "91:7094", "name": "Constellation", "code": "Constellation" },
+    { "id": "83:6518", "name": "Logo/ MusicDude", "asset": "assets/musicdude-logo-primary.svg" },
+    { "id": "90:6822", "name": "Logo/ MusicDude", "asset": "assets/musicdude-logo-dark.svg" }
+  ],
+  "systemNodes": [
+    { "id": "4:2", "name": "MusicDude · Color system / Dark" },
+    { "id": "5:291", "name": "MusicDude · References" },
+    { "id": "6:7659", "name": "txt" },
+    { "id": "6:7745", "name": "Status bar" },
+    { "id": "7:68", "name": "Home bar" },
+    { "id": "8:98", "name": "icons" },
+    { "id": "14:65", "name": "Navigation" },
+    { "id": "16:498", "name": "Buttons" },
+    { "id": "16:588", "name": "Inputs & Selectors" },
+    { "id": "18:708", "name": "Library · Filters & Mode" }
+  ]
+}
